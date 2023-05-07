@@ -33,10 +33,10 @@ const createAndSavePerson = (done) => {
     age: 25,
     favoriteFoods: ['pizza', 'wafles', 'chocolate']
   });
-  David.document.save();
-  //... do something (risky) ...
-  if (error) return done(error);
-  done(null, David);
+  David.save(function(err, data) {
+    if (err) return console.error(err);
+    done(null, data)
+  });
 };
 
 
